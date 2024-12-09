@@ -24,19 +24,19 @@
 		"test": "pnpm runall test"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.5.0",
-		"commitizen": "^4.3.1",
-		"cz-customizable": "^7.2.1",
-		"eslint": "^9.14.0",
-		"husky": "^9.1.6",
-		"prettier": "^3.3.3",
-		"@types/tape": "^5.6.4",
-		"tape": "^5.9.0",
-		"colortape": "^0.1.2",
+		"@commitlint/cli": "^19.6.0",
+		"@types/tape": "^5.6.5",
 		"c8": "^10.1.2",
-		"tsx": "^4.19.2",
+		"colortape": "^0.1.2",
+		"commitizen": "^4.3.1",
+		"cz-customizable": "^7.3.0",
+		"eslint": "^9.16.0",
+		"husky": "^9.1.7",
+		"prettier": "^3.4.2",
 		"serve": "^14.2.4",
-		"typescript": "^5.6.3"
+		"tape": "^5.9.0",
+		"tsx": "^4.19.2",
+		"typescript": "^5.7.2"
 	},
 	"config": {
 		"cz-customizable": {
