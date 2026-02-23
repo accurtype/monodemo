@@ -3,7 +3,10 @@
 	"private": true,
 	"name": "docs",
 	"type": "module",
-	"scripts": {},
+	"scripts": {
+		"build": "echo hh",
+		"clear": "echo hh"
+	},
 	"dependencies": {},
 	"devDependencies": {
 		"serve": "^14.2.4"
