@@ -1,16 +1,14 @@
-// @ts-check
-/// <reference types="node" />
-
-/**@import { Config } from 'typescript-eslint' */
+/**@import { ConfigArray } from 'typescript-eslint' */
 import eslint from '@eslint/js';
 import accurtypeStyle from 'eslint-config-accurtype-style';
+import { defineConfig } from 'eslint/config';
 import { getDirname } from 'esm-entry';
 import globals from 'globals';
 import path from 'path';
 import tseslint from 'typescript-eslint';
 
-/**@type {Config} */
-const config = tseslint.config(
+/**@type {ConfigArray} */
+const config = defineConfig(
 	...accurtypeStyle,
 	eslint.configs.recommended,
 	...tseslint.configs.stylisticTypeChecked,
@@ -47,7 +45,7 @@ const config = tseslint.config(
 	{
 		name: 'Node Env',
 		files: [
-			'config/**',
+			'config/cz-config.cjs',
 		],
 		languageOptions: { globals: globals.node },
 	},

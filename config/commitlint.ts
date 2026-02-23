@@ -1,5 +1,4 @@
-import type { UserConfig } from '@commitlint/types';
-import { RuleConfigSeverity } from '@commitlint/types';
+import { RuleConfigSeverity, UserConfig } from '@commitlint/types';
 import * as czConfig from './cz-config.cjs';
 
 function allList<T>(s: Set<T>): Set<T[]> {
@@ -12,7 +11,7 @@ function allList<T>(s: Set<T>): Set<T[]> {
 	return r;
 }
 const scpoeEnum = [
-	...allList(new Set(czConfig.scopes.map(({ name }) => name))),
+	...allList(new Set(czConfig.packages.map(({ name }) => name))),
 ].map(n => n.join(', '));
 
 const config: UserConfig = {
