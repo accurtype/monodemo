@@ -7,3 +7,5 @@ packages:
     - 'docs'
     # 剔除测试
     - '!**/test/**'
+allowBuilds:
+    wasm-pack: true

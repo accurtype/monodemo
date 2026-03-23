@@ -29,16 +29,9 @@ jobs:
                   rm -rf package-lock.json
                   pnpm i
                   pnpm i
-            - name: Test
+            - name: Test All
               run: |
-                  pnpm test
-            - name: Lint
-              run: |
-                  pnpm lint
-            # - name: Test cli
-            #   run: |
-            #     pnpm test:cli
-            #     pnpm clear
+                  pnpm run ci
 
     # coverage:
     #   needs: test

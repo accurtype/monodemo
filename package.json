@@ -14,15 +14,16 @@
 		"prepare": "husky",
 		"cz": "pnpm -s lint && cz",
 
-		"prefmt": "prettier --ignore-path config/.prettierignore -w .",
-		"fmt": "eslint -c config/eslint.flat.js . --fix",
-		"prelint": "prettier --ignore-path config/.prettierignore -c .",
-		"lint": "eslint -c config/eslint.flat.js .",
+		"fmt": "prettier --ignore-path config/.prettierignore -w . && eslint -c config/eslint.flat.js . --fix",
+		"postfmt": "cargo fmt && cargo clippy --fix --allow-dirty",
+		"lint": "prettier --ignore-path config/.prettierignore -c . && eslint -c config/eslint.flat.js .",
+		"postlint": "cargo fmt --check && cargo clippy",
 
 		"test": "pnpm run -r test",
+		"posttest": "cargo test",
 		"build": "pnpm run -r build",
 		"clear": "pnpm run -r clear",
-		"ci": "pnpm lint && pnpm test && pnpm build && pnpm clear"
+		"ci": "pnpm build && pnpm test && pnpm clear && pnpm lint"
 	},
 	"devDependencies": {
 		"husky": "^9.*.*",
