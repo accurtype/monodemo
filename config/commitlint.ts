@@ -10,9 +10,11 @@ function allList<T>(s: Set<T>): Set<T[]> {
 	});
 	return r;
 }
-const scpoeEnum = [
-	...allList(new Set(czConfig.packages.map(({ name }) => name))),
-].map(n => n.join(', '));
+const scopeEnum = czConfig.packages.length >= 8
+	? czConfig.packages.map(({ name }) => name)
+	: Array
+		.from(allList(new Set(czConfig.packages.map(({ name }) => name))))
+		.map(n => n.join(', '));
 
 const config: UserConfig = {
 	/*
@@ -30,7 +32,7 @@ const config: UserConfig = {
 	 */
 	rules: {
 		'body-leading-blank': [RuleConfigSeverity.Error, 'always'],
-		'scope-enum': [RuleConfigSeverity.Error, 'always', scpoeEnum],
+		'scope-enum': [RuleConfigSeverity.Error, 'always', scopeEnum],
 		'subject-empty': [RuleConfigSeverity.Error, 'never'],
 		'type-enum': [RuleConfigSeverity.Error, 'always', czConfig.types.map(({ value }) => value)],
 		'type-case': [RuleConfigSeverity.Error, 'always', 'kebab-case'],
