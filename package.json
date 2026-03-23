@@ -12,8 +12,7 @@
 	"type": "module",
 	"scripts": {
 		"prepare": "husky",
-		"ls-proj": "make-dir config/dist && pnpm -s ls -r --filter=!. --depth=-1 --json>config/dist/packages.json",
-		"cz": "pnpm -s ls-proj && pnpm -s lint && cz",
+		"cz": "pnpm -s lint && cz",
 
 		"prefmt": "prettier -w .",
 		"fmt": "eslint . --fix",

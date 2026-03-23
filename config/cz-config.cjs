@@ -2,14 +2,14 @@
 /// <reference types="node" />
 /**@import { ProjectManifest } from '@pnpm/types'; */
 
-const fs = require('fs');
+const { execSync } = require('child_process');
 
 function getPackages() {
-	const filePath = __dirname + '/dist/packages.json';
-	const file = fs.readFileSync(filePath);
-	fs.rmSync(filePath);
 	/**@type {(ProjectManifest & { path: string; name: string; })[]} */
-	const packages = JSON.parse(file.toString());
+	const packages = JSON.parse(execSync(
+		'pnpm -s ls -r --filter=!. --depth=-1 --json',
+		{ cwd: __dirname + '/../' },
+	).toString());
 	for (const { name, path } of packages) {
 		if (!name) throw Error(path);
 	}
