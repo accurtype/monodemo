@@ -14,10 +14,10 @@
 		"prepare": "husky",
 		"cz": "pnpm -s lint && cz",
 
-		"prefmt": "prettier -w .",
-		"fmt": "eslint . --fix",
-		"prelint": "prettier -c .",
-		"lint": "eslint .",
+		"prefmt": "prettier --ignore-path config/.prettierignore -w .",
+		"fmt": "eslint -c config/eslint.flat.js . --fix",
+		"prelint": "prettier --ignore-path config/.prettierignore -c .",
+		"lint": "eslint -c config/eslint.flat.js .",
 
 		"test": "pnpm run -r test",
 		"build": "pnpm run -r build",
