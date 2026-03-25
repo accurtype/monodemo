@@ -10,9 +10,7 @@
 **/*.tsx
 **/*.ctsx
 **/*.mtsx
+
 **/*.md
-**/dist
-pnpm-lock.yaml
-**/package.json
 **/*.rs
-**/target
+**/package.json
