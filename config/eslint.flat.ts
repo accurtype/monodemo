@@ -2,6 +2,7 @@ import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import accurtypeStyle from 'eslint-config-accurtype-style';
 import { importX } from 'eslint-plugin-import-x';
+import importZod from 'eslint-plugin-import-zod';
 import { configs as securityConfigs } from 'eslint-plugin-security';
 import { configs as sonarjsConfigs } from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
@@ -9,7 +10,6 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import { ConfigArray, configs as tseslintConfigs } from 'typescript-eslint';
 import { pathTo } from './utility.ts';
-import importZod from 'eslint-plugin-import-zod';
 
 const config: ConfigArray = defineConfig(
 	...accurtypeStyle,
@@ -26,10 +26,7 @@ const config: ConfigArray = defineConfig(
 		languageOptions: {
 			parserOptions: {
 				tsconfigRootDir: pathTo('..'),
-				project: [
-					'config/tsconfig.json',
-					'packages/*/tsconfig.json',
-				],
+				projectService: true,
 			},
 		},
 	},
@@ -42,8 +39,6 @@ const config: ConfigArray = defineConfig(
 		name: 'Global Ignore',
 		ignores: [
 			'**/*.md',
-			'eslint.config.ts',
-			'.*',
 		],
 	},
 	{

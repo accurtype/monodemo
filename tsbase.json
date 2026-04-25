@@ -24,8 +24,9 @@
 		"alwaysStrict": true,
 		"noImplicitThis": true,
 
+		"composite": true,
 		"noEmitOnError": true,
-		"noEmit": true,
+		"emitDeclarationOnly": true,
 		"declaration": true
 	},
 	"exclude": ["**/dist"]

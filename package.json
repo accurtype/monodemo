@@ -19,6 +19,7 @@
 		"lint": "prettier -c . && eslint .",
 		"postlint": "cargo fmt --check && cargo clippy",
 
+		"pretest": "tsc -b",
 		"test": "pnpm run -r test",
 		"posttest": "cargo test",
 		"build": "pnpm run -r build",
