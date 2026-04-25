@@ -23,7 +23,7 @@
 		"typescript-eslint": "^8.*.*",
 		"globals": "^17.*.*",
 
-		"simple-git": "latest",
+		"es-git": "latest",
 		"@types/node": "latest",
 		"cz-git": "latest",
 		"@pnpm/find-workspace-packages": "latest",
