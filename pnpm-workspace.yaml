@@ -8,4 +8,5 @@ packages:
     # 剔除测试
     - '!**/test/**'
 allowBuilds:
+    unrs-resolver: true
     wasm-pack: true
