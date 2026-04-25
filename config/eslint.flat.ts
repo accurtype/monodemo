@@ -4,7 +4,6 @@ import accurtypeStyle from 'eslint-config-accurtype-style';
 import { importX } from 'eslint-plugin-import-x';
 import importZod from 'eslint-plugin-import-zod';
 import { configs as securityConfigs } from 'eslint-plugin-security';
-import { configs as sonarjsConfigs } from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
@@ -17,7 +16,6 @@ const config: ConfigArray = defineConfig(
 	...tseslintConfigs.stylisticTypeChecked,
 	unicorn.configs.recommended,
 	securityConfigs.recommended as any,
-	sonarjsConfigs.recommended,
 	importX.flatConfigs.recommended,
 	importX.flatConfigs.typescript,
 	...importZod.configs.recommended,
