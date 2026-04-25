@@ -9,6 +9,7 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import { ConfigArray, configs as tseslintConfigs } from 'typescript-eslint';
 import { pathTo } from './commitlint.ts';
+import importZod from 'eslint-plugin-import-zod';
 
 const security = securityImp;
 const config: ConfigArray = defineConfig(
@@ -20,6 +21,7 @@ const config: ConfigArray = defineConfig(
 	sonarjsConfigs.recommended,
 	importX.flatConfigs.recommended,
 	importX.flatConfigs.typescript,
+	...importZod.configs.recommended,
 	{
 		name: 'TS Base Config',
 		languageOptions: {
