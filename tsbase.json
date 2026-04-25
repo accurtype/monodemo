@@ -29,5 +29,5 @@
 		"emitDeclarationOnly": true,
 		"declaration": true
 	},
-	"exclude": ["**/dist"]
+	"exclude": ["**/dist/**/*.d.ts", "**/dist/**/*.d.mts", "**/dist/**/*.d.cts", "**/dist/**/*.d.tsx"]
 }
