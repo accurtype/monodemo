@@ -9,11 +9,11 @@
 ## 本项目工程化的方面
 
 - pnpm workspace
-- 默认全 TypeScript + ESModule
+- 默认全 TypeScript + ESModule ，通过 tsx 或高版本的 node
 - 使用 prittier 和 eslint 组合进行 lint
 - 通过 git hooks 保证代码的质量
 - 使用 commitlint 来检查提交格式
-- 同时使用 commitizen 来更方便地提交
+- 同时使用 czg 来更方便地提交
 - 自动构建和测试的线上 Actions
 - 可自定义编译流程的 Pages 来构建文档
 - 和 Cargo Workspace 的集成
@@ -23,13 +23,17 @@
 
 ## 纯粹的 TypeScript 开发体验
 
-本模板的两个目标是
+> 本模板的两个目标是
+>
+> 1. 如果可以在 ts 和 js 里选择，那一定选择 ts
+> 2. 如果只能用 js ，那也要 js + jsDoc
 
-1. 如果可以在 ts 和 js 里选择，那一定选择 ts
-2. 如果只能用 js ，那也要 js + jsDoc
+以上目标已经过时了，本模板限制 Node 版本 `>=22.18.0` ，新的目标是：
 
-本模板预先给你声明了 `tsx` 和 esbuild 两个依赖，为的就是允许你尽可能的使用 ts 。
-默认的 TypeScript 配置也经过了实践验证，开箱即用。
+1. 如果可以用 node 跑 ts ，那就用 node ，不能用 node 还有 `tsx`
+3. 如果要在浏览器里跑，就用 esbuild
+
+默认的 TypeScript 配置经过了实践验证，开箱即用。
 
 ## 独立，清晰，高自由度的配置
 
@@ -38,10 +42,9 @@
 这也是一个 js 包，可单独声明依赖，一并进行 lint 和类型检查等。
 
 - `.prettierignore` 为 prettier 的忽略文件
-- `commitlint.ts` 为 commitlint 的配置文件
-- `cz-config.cjs` 为 commitizen 的配置文件，也包含了工作区所有包的信息
+- `commitlint.ts` 为 commitlint 和 czg 的配置文件
 - `env.sh` 设想是在在打开项目时需要执行的一个小脚本，你可以随意修改它
-- `eslint.flat.js` 为 eslint 的配置
+- `eslint.flat.ts` 为 eslint 的配置
 - `tsbase.json` 为整个项目的基本 TS 配置
 
 ## 经过验证的文档构建 Actions 流程

@@ -1,28 +1,23 @@
-/**@import { ConfigArray } from 'typescript-eslint' */
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import accurtypeStyle from 'eslint-config-accurtype-style';
 import { importX } from 'eslint-plugin-import-x';
 import securityImp from 'eslint-plugin-security';
-import sonarjsImp from 'eslint-plugin-sonarjs';
+import { configs as sonarjsConfigs } from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
-import { configs as tseslintConfigs } from 'typescript-eslint';
+import { ConfigArray, configs as tseslintConfigs } from 'typescript-eslint';
 import { pathTo } from './commitlint.ts';
 
-/**@type {any} */
 const security = securityImp;
-/**@type {any} */
-const sonarjs = sonarjsImp;
-/**@type {ConfigArray} */
-const config = defineConfig(
+const config: ConfigArray = defineConfig(
 	...accurtypeStyle,
 	eslint.configs.recommended,
 	...tseslintConfigs.stylisticTypeChecked,
 	unicorn.configs.recommended,
-	security.configs.recommended,
-	sonarjs.configs.recommended,
+	security.configs.recommended as any,
+	sonarjsConfigs.recommended,
 	importX.flatConfigs.recommended,
 	importX.flatConfigs.typescript,
 	{
@@ -46,7 +41,7 @@ const config = defineConfig(
 		name: 'Global Ignore',
 		ignores: [
 			'**/*.md',
-			'eslint.config.mjs',
+			'eslint.config.ts',
 			'.*',
 		],
 	},
