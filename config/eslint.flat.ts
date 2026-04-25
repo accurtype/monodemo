@@ -2,22 +2,21 @@ import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
 import accurtypeStyle from 'eslint-config-accurtype-style';
 import { importX } from 'eslint-plugin-import-x';
-import securityImp from 'eslint-plugin-security';
+import { configs as securityConfigs } from 'eslint-plugin-security';
 import { configs as sonarjsConfigs } from 'eslint-plugin-sonarjs';
 import unicorn from 'eslint-plugin-unicorn';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import { ConfigArray, configs as tseslintConfigs } from 'typescript-eslint';
-import { pathTo } from './commitlint.ts';
+import { pathTo } from './utility.ts';
 import importZod from 'eslint-plugin-import-zod';
 
-const security = securityImp;
 const config: ConfigArray = defineConfig(
 	...accurtypeStyle,
 	eslint.configs.recommended,
 	...tseslintConfigs.stylisticTypeChecked,
 	unicorn.configs.recommended,
-	security.configs.recommended as any,
+	securityConfigs.recommended as any,
 	sonarjsConfigs.recommended,
 	importX.flatConfigs.recommended,
 	importX.flatConfigs.typescript,
