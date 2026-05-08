@@ -10,3 +10,4 @@ packages:
 allowBuilds:
     unrs-resolver: true
     wasm-pack: true
+    esbuild: true
