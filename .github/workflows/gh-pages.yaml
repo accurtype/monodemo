@@ -8,34 +8,36 @@ on:
 
 permissions:
     contents: write
-    pages: write
-    id-token: write
 
 jobs:
     build:
         # env:
         #     PLANT_UML_VERSION: '1.2024.7'
         #     UML_GRAPH_LIST: 'docs/arch.puml'
+
         runs-on: ubuntu-latest
+
         steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  submodules: recursive
+
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: latest
+
             - name: Use Node.js
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: 24.x
 
-            - uses: actions/checkout@master
-              with:
-                  persist-credentials: false
-                  fetch-depth: 0
+            - name: Init enviroument
+              run: |
+                  pnpm i
 
             - name: Build
               run: |
-                  npm i pnpm -g
-                  rm -rf package-lock.json
-                  echo package-import-method=copy >> .npmrc
-                  echo prefer-symlinked-executables=false >> .npmrc
-                  pnpm i
-                  pnpm i
                   pnpm build
 
             # - name: Gen PlantUML
@@ -48,11 +50,10 @@ jobs:
             #       done
             #       rm -rf plantuml.jar
 
-            - name: Save changes
+            - name: Prepare push
               run: |
                   find . -name '.gitignore' -type f -print | xargs rm -rf
                   rm -rf .husky
-                  git add .
 
             - name: Push Branch
               uses: actions-js/push@master
