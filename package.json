@@ -52,7 +52,6 @@
 		"make-dir-cli": "latest",
 		"tsx": "latest",
 		"tinyglobby": "latest",
-		"esm-entry": "latest",
 		"esbuild": "latest",
 		"typescript": "latest"
 	},
