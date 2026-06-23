@@ -1,6 +1,5 @@
 import { build } from 'esbuild';
 import { glob } from 'tinyglobby';
-import { getDirname } from 'esm-entry';
 
 await build({
 	entryPoints: await glob(
@@ -9,7 +8,7 @@ await build({
 		],
 		{
 			onlyFiles: true,
-			cwd: getDirname(import.meta.url),
+			cwd: new URL('.', import.meta.url),
 		},
 	),
 	bundle: false,
